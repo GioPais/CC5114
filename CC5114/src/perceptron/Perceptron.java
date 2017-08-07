@@ -72,15 +72,21 @@ public class Perceptron {
 		return this.getOutput(x1, x2);
 	}
 	
+	public double XOR(double x1, double x2){
+		double aux = this.NAND(x1,x2);
+		double out1 = this.NAND(x1,aux);
+		double out2 = this.NAND(aux,x2);
+		return this.NAND(out1, out2);
+	}
+	
 	public double[] summingBit(double x1, double x2){
 		
 		double[] result=new double[2];
+		double out = this.XOR(x1,x2);
+		double carryOut=this.AND(x1, x2);
 		
-		double out=0;
-		double carryOut=1;
-		
-		result[0]=out;
-		result[1]=carryOut;
+		result[0]=carryOut;
+		result[1]=out;
 		return result; 
 	}
 

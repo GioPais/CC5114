@@ -52,23 +52,22 @@ public class PerceptronTest {
 	
 	@Test
 	public void SummingTest() {
+		
 		double[] result = p.summingBit(0, 0);
 		assertEquals(0,result[0],0);
+		assertEquals(0,result[1],0);
+		
+		result = p.summingBit(0, 1);
+		assertEquals(0,result[0],0);
 		assertEquals(1,result[1],0);
-		//assertEquals(0,p.NAND(1,1),0);
-		//assertEquals(1,p.NAND(1,0),0);
-		//assertEquals(1,p.NAND(0,1),0);
 		
-		//assertEquals(0,p.AND(0,0),0);
-		//assertEquals(1,p.AND(1,1),0);
-		//assertEquals(0,p.AND(1,0),0);
-		//assertEquals(0,p.AND(0,1),0);
+		result = p.summingBit(1, 0);
+		assertEquals(0,result[0],0);
+		assertEquals(1,result[1],0);
 		
-		//assertEquals(0,p.OR(0,0),0);
-		//assertEquals(1,p.OR(1,1),0);
-		//assertEquals(1,p.OR(1,0),0);
-		//assertEquals(1,p.OR(0,1),0);
-		
+		result = p.summingBit(1, 1);
+		assertEquals(1,result[0],0);
+		assertEquals(0,result[1],0);
 		
 	}
 	
