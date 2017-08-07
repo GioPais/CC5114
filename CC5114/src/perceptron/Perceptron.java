@@ -12,8 +12,16 @@ public class Perceptron {
 	}
 	
 	
-	public Perceptron(float b){
+	public Perceptron(double b){
 		this.bias=b;
+		this.w1=1;
+		this.w2=1;
+	}
+	
+	public Perceptron(double b, double w1, double w2){
+		this.bias=b;
+		this.w1=w1;
+		this.w2=w2;
 	}
 	
 	public double getW1(){
@@ -63,5 +71,4 @@ public class Perceptron {
 		return this.getOutput(x1, x2);
 	}
 
-	
 }
