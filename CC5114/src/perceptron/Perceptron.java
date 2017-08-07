@@ -2,7 +2,14 @@ package perceptron;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Clase Perceptron para dos entradas. Tiene metodos que implementan comportamientos de compuertas logicas.
+ * Contiene metodo para realizar sumas de 1 bit con carryout.
+ * 
+ * Los parametros de la funcion corresponden al bias y las ganancias de las entradas denotadas como w.
+ * 
+ @author Giovanni Pais
+ */
 public class Perceptron {
 	private double bias;
 	private double w1;
@@ -34,6 +41,12 @@ public class Perceptron {
 		return this.w2;
 	}
 	
+	/**
+	 * Consulta al perceptron para tomar la desición
+	 * @param x1 entrada
+	 * @param x2 entrada
+	 * @return resultado de la decisión a partir de las entradas, las ganancias w y el bias
+	 */
 	public double getOutput(double x1,double x2){
 		//System.out.print("Suma: ");
 		//double p = this.w1*x1+this.w2*x2;
@@ -50,7 +63,9 @@ public class Perceptron {
 			return 1;
 		}
 	}
-	
+	/**
+	 * Comportamiento logico NAND para dos entradas
+	 */
 	public double NAND(double x1, double x2){
 		this.w1=-2;
 		this.w2=-2;
@@ -58,6 +73,9 @@ public class Perceptron {
 		return this.getOutput(x1, x2);
 	}
 	
+	/**
+	 * Comportamiento logico AND para dos entradas
+	 */
 	public double AND(double x1, double x2){
 		this.w1=1;
 		this.w2=1;
@@ -65,6 +83,9 @@ public class Perceptron {
 		return this.getOutput(x1, x2);
 	}
 	
+	/**
+	 * Comportamiento logico OR para dos entradas
+	 */
 	public double OR(double x1, double x2){
 		this.w1=1;
 		this.w2=1;
@@ -72,6 +93,10 @@ public class Perceptron {
 		return this.getOutput(x1, x2);
 	}
 	
+	/**
+	 * Comportamiento logico XOR para dos entradas
+	 * Construido a partir de comportamientos logicos NAND
+	 */
 	public double XOR(double x1, double x2){
 		double aux = this.NAND(x1,x2);
 		double out1 = this.NAND(x1,aux);
@@ -79,6 +104,13 @@ public class Perceptron {
 		return this.NAND(out1, out2);
 	}
 	
+	/**
+	 * Sumador para un bit que retorna el resultado de la suma y el carryout de la operacion.
+	 * Implementado a partir de comportamientos logicos NAND
+	 * @param x1 entrada
+	 * @param x2 entrada
+	 * @return retorna un arreglo de doubles donde el primero corresponde al carryout del sumador y el segundo al resultado de la suma
+	 */
 	public double[] summingBit(double x1, double x2){
 		
 		double[] result=new double[2];
