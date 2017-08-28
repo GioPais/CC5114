@@ -20,7 +20,7 @@ class Perceptron(object):
 			return 1
 
 
-	def train_perceptron(self,cases):
+	def train(self,cases):
 		c = 0.01
 		for i in range(cases):
 			x = random.randint(-50,50)
@@ -70,12 +70,12 @@ if __name__ == "__main__":
 	p=Perceptron()
 
 	b_trainning=p.test_trainnig(1000)
-	p.train_perceptron(10000)
+	p.train(10000)
 	a_trainning=p.test_trainnig(1000)
 
-	print "Cantida de match sin entrenamiento:"
+	print "Cantidad de match sin entrenamiento:"
 	print b_trainning
-	print "Cantida de match con entrenamiento:"
+	print "Cantidad de match con entrenamiento:"
 	print a_trainning
 
 
